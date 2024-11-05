@@ -1,0 +1,73 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'base/css/navbar.css' %}">
+
+<nav class="navbar navbar-expand-lg navbar-gradient">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'cars:home' %}">
+      <i class="fas fa-car fa-lg me-2"></i> Carros
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Links da navbar -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active nav-hover" aria-current="page" href="{% url 'cars:home' %}">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-hover" href="#">
+            <i class="fas fa-link"></i> Link
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle nav-hover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-bars"></i> Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Formulário de busca -->
+      <form class="d-flex me-3" role="search" method="GET" action="{% url 'cars:list' %}">
+        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light search-btn" type="submit">Search</button>
+      </form>
+
+      <!-- Botões de login/registrar ou perfil -->
+      <div class="d-flex gap-3 align-items-center">
+        {% if user.is_authenticated %}
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user"></i> {{ user.username }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="{% url 'accounts:profile' user.profile.slug %}">Perfil</a>
+              <a href="{% url 'accounts:edit_profile' %}" class="btn btn-outline-secondary">Editar Perfil</a>
+
+              <li>
+                <form method="POST" action="{% url 'logout' %}" class="d-inline">
+                  {% csrf_token %}
+                  <button type="submit" class="dropdown-item">Sair</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        {% else %}
+          <a class="btn btn-outline-primary login-btn" href="{% url 'login' %}">Entrar</a>
+          <a class="btn btn-success register-btn" href="{% url 'accounts:register' %}">Registrar</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,50 @@
+{% extends "../base/base.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'registration/css/login.css' %}">
+<link rel="stylesheet" href="{% static 'base/css/base.css' %}">
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-4">
+                <h3 class="card-title text-center mb-4">Login</h3>
+                <form method="post">
+                    {% csrf_token %}
+
+                    <!-- Campo Usuário -->
+                    <div class="form-floating mb-3">
+                        <input type="text" name="username" class="form-control" id="id_username" placeholder="Usuário" required>
+                        <label for="id_username">Usuário</label>
+                    </div>
+                    
+                    <!-- Campo Senha -->
+                    <div class="form-floating mb-3">
+                        <input type="password" name="password" class="form-control" id="id_password" placeholder="Senha" required>
+                        <label for="id_password">Senha</label>
+                    </div>
+
+                    <!-- Campo Lembre-me -->
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" name="remember_me" class="form-check-input" id="id_remember_me">
+                        <label class="form-check-label" for="id_remember_me">Lembre-me</label>
+                    </div>
+
+                    <!-- Botão Entrar -->
+                    <button class="btn btn-warning w-100 rounded-3 py-2 fw-semibold" type="submit">Entrar</button>
+                </form>
+
+                <!-- Link para Esqueci minha senha -->
+                <div class="text-center mt-3">
+                    <a href="{% url 'password_reset' %}" class="text-decoration-none text-secondary">Esqueci minha senha</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

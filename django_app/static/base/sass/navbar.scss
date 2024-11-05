@@ -1,0 +1,138 @@
+// Variáveis de estilo
+$navbar-background-color: #2c2c2c;
+$navbar-gradient-start: #2c3e50;
+$navbar-gradient-end: #4b4b4b;
+$highlight-color: #ffcc00;
+$text-light-color: #ffffff;
+
+// Gradiente de fundo mais moderno e sutil
+.navbar-gradient {
+  background: linear-gradient(135deg, $navbar-gradient-start, $navbar-gradient-end);
+  padding: 1rem 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+// Estilo aprimorado dos links na navbar
+.nav-hover {
+  position: relative;
+  color: $text-light-color !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $highlight-color !important;
+  }
+
+  // Efeito de linha deslizante
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: $highlight-color;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// Estilo para o botão de toggle (menu hambúrguer)
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: rotate(90deg);
+  }
+}
+
+// Botões de login e registro aprimorados
+.login-btn,
+.register-btn {
+  font-weight: bold;
+  color: $text-light-color;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    color: $navbar-background-color;
+    background-color: $highlight-color;
+    border-color: $highlight-color;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  }
+}
+
+// Botão de logout com destaque em vermelho ao passar o mouse
+.logout-btn {
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #e74c3c;
+    color: #ffffff;
+  }
+}
+
+// Botão de busca com estilo refinado
+.search-btn {
+  border: 1px solid $text-light-color;
+  color: $text-light-color;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $text-light-color;
+    color: $navbar-background-color;
+  }
+}
+
+// Input de busca aprimorado
+.form-control {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: $text-light-color;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &:focus {
+    border-color: $highlight-color;
+    box-shadow: 0 0 0 0.2rem rgba(255, 204, 0, 0.25);
+  }
+}
+
+// Dropdown personalizado para o usuário autenticado
+.dropdown-toggle {
+  color: $text-light-color;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $highlight-color;
+  }
+}
+
+// Menu suspenso estilizado
+.dropdown-menu {
+  background-color: $navbar-gradient-end;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  .dropdown-item {
+    color: $text-light-color;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $highlight-color;
+    }
+  }
+}

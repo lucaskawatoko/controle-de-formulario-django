@@ -1,0 +1,30 @@
+$card-img-height: 250px;
+
+body {
+  background-color: whitesmoke;
+}
+
+.card-img-top {
+  height: $card-img-height;
+  object-fit: cover;
+}
+
+.carousel-item img {
+      width: 100%;
+      height: 300px; /* Ajuste a altura conforme a necessidade */
+      object-fit: cover; /* Assegura que a imagem preencha o espaço sem distorcer */
+  }
+
+  .card {
+    transition: transform 0.3s ease; // Suavidade na transição
+  
+    &:hover {
+      transform: scale(1.005); // Aumenta o card em 5% ao passar o mouse
+    }
+  }
+
+p.sem-cars {
+  color: #b6b6b6 !important;
+  font-size: 1.5em;
+}
+  

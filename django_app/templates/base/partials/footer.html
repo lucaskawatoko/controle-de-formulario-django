@@ -1,0 +1,84 @@
+<footer class="bg-dark text-light py-4" id="footer">
+    <div class="container">
+      <div class="row">
+        <!-- Coluna de navegação -->
+        <div class="col-md-4">
+          <h5>Lucas Multimarcas</h5>
+          <div class="row">
+            <div class="col-3">
+              <ul class="list-unstyled">
+                <li><a href="{% url 'cars:home' %}" class="text-light">Home</a></li>
+                <li><a href="#" class="text-light">Sobre nós</a></li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-light">Contato</a></li>
+                <li><a href="#" class="text-light">Serviços</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>        
+  
+        <!-- Coluna de redes sociais -->
+        <div class="col-md-4">
+          <h5>Siga-nos</h5>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/lucas_kawatoko/" class="text-light" target="_blank">
+                <i class="fab fa-instagram fa-lg instagram-icon"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/lucaskawatoko" class="text-light" target="_blank">
+                <i class="fab fa-github fa-lg github-icon"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://br.linkedin.com/in/lucaskawatoko" class="text-light" target="_blank">
+                <i class="fab fa-linkedin fa-lg linkedin-icon"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Coluna de contato -->
+        <div class="col-md-4">
+          <h5>Contato</h5>
+          <ul class="list-unstyled">
+            <!-- E-mail clicável -->
+            <li>
+              <i class="fas fa-envelope email-icon"></i> 
+              <a href="mailto:contato@lucasmultimarcas.com" class="text-light">
+                contato@lucasmultimarcas.com
+              </a>
+            </li>
+            
+            <!-- Telefone clicável -->
+            <li>
+              <i class="fab fa-whatsapp whatsapp-icon"></i> 
+              <a href="https://wa.me/5511978525352?text=Ol%C3%A1,%20tudo%20bem?%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20voc%C3%AAs.%20Poderiam%20me%20ajudar,%20por%20favor?" class="text-light" target="_blank">
+                +55 (11) 9 7852-5352
+              </a>
+            </li>                     
+            
+            <!-- Endereço clicável (Google Maps) -->
+            <li>
+              <i class="fas fa-map-marker-alt address-icon"></i> 
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua+Exemplo,+123,+São+Paulo+-+SP" class="text-light" target="_blank">
+                Rua Exemplo, 123, São Paulo - SP
+              </a>
+            </li>
+          </ul>          
+        </div>
+      </div>
+  
+      <!-- Linha separadora -->
+      <hr class="bg-light">
+  
+      <!-- Direitos autorais -->
+      <div class="text-center">
+        <p class="mb-0">&copy; 2011 - {% now "Y" %} Lucas Multimarcas - Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>

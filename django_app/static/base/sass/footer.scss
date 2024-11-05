@@ -1,0 +1,92 @@
+$font-size-social-media: 1.8rem; // Tamanho padrão para ícones de redes sociais
+$font-sieze-contact: 1.3rem; // Tamanho padrão para ícones de contato e localização
+
+// Estilo principal do footer
+#footer {
+  background: #787878 !important; // Cor de fundo escura
+  padding: 1rem 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  // Estilo para links do footer
+  a {
+    color: #d3d3d3;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+
+    &:hover {
+      color: #ffcc00; // Destaque ao passar o mouse
+      transform: scale(1.05); // Pequeno zoom para efeito de foco
+    }
+  }
+
+  // Efeito hover para redes sociais
+  .list-inline-item a {
+    color: inherit; // Cor herdada do link pai
+
+    &:hover {
+      transform: translateY(-5px) scale(1.2); // Efeito 3D ao passar o mouse
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); // Sombra clara para destaque
+    }
+  }
+
+  // Estilo para ícones individuais com cores específicas
+  .facebook-icon {
+    color: #3b5998; // Azul do Facebook
+    font-size: $font-size-social-media;
+  }
+  .instagram-icon {
+    color: #e1306c; // Rosa do Instagram
+    font-size: $font-size-social-media;
+  }
+  .github-icon {
+    color: #333333; // Cor do GitHub
+    font-size: $font-size-social-media;
+  }
+  .linkedin-icon {
+    color: #0077b5; // Azul do LinkedIn
+    font-size: $font-size-social-media;
+  }
+  .whatsapp-icon {
+    color: #25D366; // Verde do WhatsApp
+    font-size: $font-sieze-contact;
+  }
+  .email-icon{
+    color: #ffcc00; // Destaque para ícones de contato e localização
+    font-size: $font-sieze-contact;
+  }
+  .address-icon{
+    color: #ff3300; // Destaque para ícones de contato e localização
+    font-size: $font-sieze-contact;
+  }
+
+  // Estilo para cada coluna do footer
+  .col-md-4 {
+    h5 {
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  // Linha separadora personalizada
+  hr.bg-light {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 1.5rem 0;
+  }
+
+  // Direitos autorais
+  .text-center p {
+    color: #d3d3d3;
+    font-size: 0.9rem;
+  }
+}

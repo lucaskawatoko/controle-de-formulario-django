@@ -1,0 +1,104 @@
+{% extends '../base/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">Perfil de {{ user.username }}</h2>
+
+                    <!-- Informações do Perfil em lista -->
+                    <ul class="list-group list-group-flush">
+
+                        <!-- Nome Completo -->
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-person-fill me-2 text-primary"></i>
+                                <div>
+                                    <p class="mb-1 fw-bold text-muted">Nome Completo</p>
+                                    <p class="text-body">{{ user.first_name }} {{ user.last_name }}</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Nome de Usuário -->
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-person-badge-fill me-2 text-primary"></i>
+                                <div>
+                                    <p class="mb-1 fw-bold text-muted">Nome de Usuário</p>
+                                    <p class="text-body">{{ user.username }}</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Email -->
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                                <div>
+                                    <p class="mb-1 fw-bold text-muted">Email</p>
+                                    <p class="text-body">{{ user.email }}</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Telefone -->
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-telephone-fill me-2 text-primary"></i>
+                                <div>
+                                    <p class="mb-1 fw-bold text-muted">Telefone</p>
+                                    <p class="text-body">{{ user.telefone }}</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Data de Cadastro -->
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-calendar-check-fill me-2 text-primary"></i>
+                                <div>
+                                    <p class="mb-1 fw-bold text-muted">Data de Cadastro</p>
+                                    <p class="text-body">{{ user.date_joined|date:"d \\d\\e m \\d\\e Y \\à\\s H:i" }}</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Último Login -->
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-clock-fill me-2 text-primary"></i>
+                                <div>
+                                    <p class="mb-1 fw-bold text-muted">Último Login</p>
+                                    <p class="text-body">{{ user.last_login|date:"d \\d\\e m \\d\\e Y \\à\\s H:i" }}</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Todos seus Cadastros -->
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-car-front-fill me-2 text-primary"></i>
+                                <div>
+                                    <p class="mb-1 fw-bold text-muted">Seus Cadastros</p>
+                                    <ul class="list-group list-group-flush">
+                                        {% for car in user.cars.all %}
+                                            <li class="list-group-item">
+                                                <a href="{% url 'cars:home' %}?user_id={{ user.id }}" class="text-decoration-none">{{ car.model.name }}</a>
+                                            </li>
+                                        {% empty %}
+                                            <li class="list-group-item text-muted">Nenhum cadastro encontrado</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends '../base/base.html' %}
+{% load static %}
+
+{% block title %}Editar Perfil{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'registration/css/edit_profile.css' %}">
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Editar Perfil</h2>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <!-- Campo de nome de usuário -->
+                        <div class="form-group">
+                            <label for="username">Nome de Usuário</label>
+                            {{ form.username }}
+                        </div>
+
+                        <!-- Campo de telefone com intl-tel-input -->
+                        <div class="form-group">
+                            <label for="telefone">Número de Telefone</label>
+                            {{ form.telefone }}
+                        </div>
+
+                        <!--Campo de Primeiro Nome-->
+                        <div class="form-group">
+                            <label for="first_name">Primeiro Nome</label>
+                            {{ form.first_name }}
+                        </div>
+
+                        <!--Campo de Sobrenome-->
+                        <div class="form-group">
+                            <label for="last_name">Sobrenome</label>
+                            {{ form.last_name }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Atualizar Perfil</button>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <a href="{% url 'accounts:profile' slug=request.user.profile.slug %}">Voltar ao Perfil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static "base/js/mask.js" %}"></script>
+
+{% endblock %}
