@@ -1,0 +1,39 @@
+services:
+  djangoapp:
+    container_name: djangoapp
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./django_app:/django_app
+      - ./data/web/static:/data/web/static/
+      - ./data/web/media:/data/web/media/
+    env_file:
+      - ./django_app/dotenv_files/.env
+    depends_on:
+      - form-django-psql
+
+  form-django-psql:
+    container_name: form-django-psql
+    image: postgres:13-alpine
+    volumes:
+      - ./data/postgres/data:/var/lib/postgresql/data/
+    env_file:
+      - ./django_app/dotenv_files/.env
+
+  sass:
+    image: node:18-alpine
+    volumes:
+      - ./django_app/static:/app/static
+    working_dir: /app
+    command: >
+      sh -c "npm install -g sass && \
+      sass --poll --no-source-map --style=compressed --watch \
+      static/form/sass:static/form/css \
+      static/cars/sass:static/cars/css \
+      static/base/sass:static/base/css \
+      static/registration/sass:static/registration/css"
+    restart: always
+    depends_on:
+      - djangoapp
