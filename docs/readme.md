@@ -43,4 +43,4 @@ Cada aplicação terá sua própria estrutura dentro de `static`, onde o nome da
 - **Nomeação de Arquivos**: Use nomes descritivos para facilitar o entendimento do conteúdo de cada arquivo, especialmente nos testes unitários.
 - **Reutilização de Funcionalidades**: Arquivos e recursos na pasta `base` devem ser genéricos e reutilizáveis para facilitar o compartilhamento de funcionalidades entre aplicações.
 
-Consulte a lista de autores em [authors.md](./authors.md).
+Consulte a lista de autores em [authors.md](./AUTHORS.md).
