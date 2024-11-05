@@ -146,4 +146,4 @@ scret/main.py
 django_app/static/cars/css
 django_app/static/form/css
 django_app/static/base/css
-django_app/static/register/css
+django_app/static/registration/css
